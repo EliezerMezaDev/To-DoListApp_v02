@@ -1,0 +1,86 @@
+$select_width: 200px;
+$select_height: 40px;
+
+.dropdownContainer {
+  position: relative;
+
+  min-width: $select_width;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+
+  .option-select {
+    width: fit-content;
+  }
+
+  .select {
+    width: 100%;
+    height: $select_height;
+    padding: 0 1rem;
+    border: 1px solid #f5f5f51a;
+
+    font-size: 1rem;
+    color: #f5f5f5;
+
+    transition: 0.3s;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &:hover {
+      background-color: #f5f5f51a;
+    }
+
+    .withOpacity {
+      color: red;
+      // #f5f5f51a
+    }
+  }
+
+  .options {
+    position: fixed;
+
+    width: $select_width;
+    height: $select_height;
+    min-height: 122px;
+
+    border: 1px solid #f5f5f51a;
+
+    margin-top: 40px;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow-x: hidden;
+    overflow-y: scroll;
+    font-size: 999;
+
+    &::-webkit-scrollbar {
+      width: 0px;
+    }
+
+    .option {
+      height: $select_height;
+      padding: 0.75rem 1rem;
+
+      background-color: #f5f5f51a;
+      
+      &:hover{
+        background-color: #f5f5f55e;
+
+      }
+
+      font-size: 1rem;
+      font-weight: 500;
+      color: #f5f5f5;
+      text-decoration: none;
+
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+  }
+}

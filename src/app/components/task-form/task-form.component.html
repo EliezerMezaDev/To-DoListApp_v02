@@ -1,0 +1,29 @@
+<form class="formWrapper" (ngSubmit)="addTask()">
+  <h2 class="form__title">Nueva Tarea</h2>
+
+  <div class="form__item main">
+    <label for="formDescription"> Descripcion: </label>
+
+    <input
+      type="text"
+      id="formDescription"
+      name="formDescription"
+      [(ngModel)]="newTaskDescription"
+      autocomplete="off"
+    />
+  </div>
+
+  <div class="form__item">
+    <label for="formStatus"> Estado: </label>
+
+    <!-- agregar DROPDOWN -->
+
+    <app-dropdown
+      [options]="statusOptions"
+      [optionSelected]="newTaskStatus"
+      (onSelect)="changeStatus($event)"
+    />
+  </div>
+
+  <button type="submit" class="form__button">Agregar tarea</button>
+</form>
