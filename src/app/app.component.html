@@ -5,10 +5,12 @@
     </header>
 
     <main class="main">
-      <app-task-form class="form"/>
+      <app-task-form class="form" />
 
       <section class="filters">
         <h2>Filtros</h2>
+
+        <app-task-filters></app-task-filters>
       </section>
 
       <app-task-list [taskList]="taskList" class="taskList" />

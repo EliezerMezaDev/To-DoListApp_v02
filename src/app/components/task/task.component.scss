@@ -4,7 +4,9 @@
   margin-bottom: 0.5rem;
 
   border: 1px solid #f5f5f51a;
-  background-color: #f5f5f51a;
+  background-color: #f5f5f50b;
+
+  transition: 0.3s;
 
   display: flex;
   flex-direction: column;
@@ -63,7 +65,18 @@
 
       text-align: justify;
 
-      color:#f5f5f5
+      color: #f5f5f5;
+    }
+  }
+
+  &.finished {
+    border-color: #f5f5f508;
+    background-color: transparent;
+
+    .task__content {
+      span {
+        text-decoration: line-through;
+      }
     }
   }
 }

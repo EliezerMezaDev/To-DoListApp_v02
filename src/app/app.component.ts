@@ -18,10 +18,10 @@ export class AppComponent {
   public taskList?: task[];
 
   private taskService = inject(TaskService);
-  private taskObserverSubscription: Subscription;
+  private taskSubjectSubscription: Subscription;
 
   constructor() {
-    this.taskObserverSubscription = this.taskService
+    this.taskSubjectSubscription = this.taskService
       .getAllTask()
       .subscribe((resp) => {
         this.taskList = resp;
@@ -29,7 +29,7 @@ export class AppComponent {
   }
 
   ngDestroy() {
-    this.taskObserverSubscription.unsubscribe();
+    this.taskSubjectSubscription.unsubscribe();
   }
 
   // get taskList() {

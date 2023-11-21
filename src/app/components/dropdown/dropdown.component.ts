@@ -14,10 +14,7 @@ export class DropdownComponent {
 
   public open: boolean = false;
 
-  constructor(){
-    
-
-    console.log('<>>> this.options <>>>', this.options);
+  constructor() {
   }
 
   public toggleDropdown() {

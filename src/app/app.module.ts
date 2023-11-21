@@ -9,6 +9,8 @@ import { TaskFormComponent } from './components/task-form/task-form.component';
 import { FormsModule } from '@angular/forms';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { ArrowComponent } from './components/dropdown/components/arrow.components';
+import { TaskFiltersComponent } from './components/task-filters/task-filters.component';
+import { TaskOrdersComponent } from './components/task-orders/task-orders.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { ArrowComponent } from './components/dropdown/components/arrow.component
     DatePipe,
     TaskFormComponent,
     DropdownComponent,
-    ArrowComponent
+    ArrowComponent,
+    TaskFiltersComponent,
+    TaskOrdersComponent
   ],
   imports: [
     BrowserModule,

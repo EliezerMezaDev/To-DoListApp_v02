@@ -6,3 +6,7 @@ export interface task {
 }
 
 export type task_status = 'empty' | 'in-progress' | 'finished';
+
+export type filter_status = task_status | 'all';
+
+export type orders = 'newest' | 'oldest';

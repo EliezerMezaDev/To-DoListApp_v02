@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { task, task_status } from '../interfaces';
+import { filter_status, task, task_status } from '../interfaces';
 
 import { BehaviorSubject, Observable } from 'rxjs';
 
@@ -29,14 +29,34 @@ const taskListAux: task[] = [
 })
 export class TaskService {
   private taskList: task[] = [];
-  private taskObserver = new BehaviorSubject<task[]>(this.taskList);
+  private taskSubject = new BehaviorSubject<task[]>(this.taskList);
+
+  public taskFilterSubject = new BehaviorSubject<filter_status>('all');
 
   constructor() {
     this.loadTaskList();
+    this.setupFiltering();
   }
 
   public getAllTask(): Observable<task[]> {
-    return this.taskObserver.asObservable();
+    return this.taskSubject.asObservable();
+  }
+
+  public setupFiltering() {
+    this.taskFilterSubject.subscribe((status: any) => {
+      const filteredTask =
+        status === 'all'
+          ? this.taskList
+          : this.taskList.filter((task: task) => task.status === status);
+
+      this.taskSubject.next(filteredTask);
+    });
+  }
+
+  public filterByStatus(_stauts: filter_status) {
+    this.taskFilterSubject.next(_stauts);
+
+    return this.taskSubject.asObservable();
   }
 
   public addTask(_task: task) {
@@ -58,14 +78,13 @@ export class TaskService {
 
     if (taskIndex === -1) return;
 
-
     this.taskList[taskIndex].status = _newStatus;
 
     this.update();
   }
 
   private update() {
-    this.taskObserver.next(this.taskList);
+    this.taskSubject.next(this.taskList);
 
     this.saveTaskList();
   }
