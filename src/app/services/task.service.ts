@@ -53,10 +53,11 @@ export class TaskService {
 
   public changeTaskStatus(_taskID: task['id'], _newStatus: task_status) {
     const taskIndex: any = this.taskList.findIndex(
-      (taks) => taskIndex.id === _taskID
+      (task) => task.id === _taskID
     );
 
     if (taskIndex === -1) return;
+
 
     this.taskList[taskIndex].status = _newStatus;
 
