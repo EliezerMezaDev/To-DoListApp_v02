@@ -1,0 +1,9 @@
+<div class="filterWrapper">
+  <label for="formStatus"> Filtrar por Estado: </label>
+
+  <app-dropdown
+    [options]="filterOptions"
+    [optionSelected]="selectedStatus"
+    (onSelect)="filterByStatus($event)"
+  />
+</div>

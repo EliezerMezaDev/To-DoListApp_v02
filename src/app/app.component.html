@@ -1,0 +1,27 @@
+<div class="container-all">
+  <div class="app">
+    <header class="app__head">
+      <h1>To-Do List <i>App</i></h1>
+    </header>
+
+    <main class="main">
+      <app-task-form class="form" />
+
+      <section class="filters">
+        <h2>Filtros</h2>
+
+        <app-task-filters />
+      </section>
+
+      <section class="filters">
+
+        <app-task-orders />
+      </section>
+      
+
+      <app-task-list [taskList]="taskList" class="taskList" />
+    </main>
+  </div>
+
+  <!-- <div class="app__version">2.0.1</div> -->
+</div>

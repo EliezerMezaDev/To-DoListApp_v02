@@ -1,0 +1,10 @@
+<div class="orderWrapper">
+    <label for="formStatus"> Filtrar por Estado: </label>
+  
+    <app-dropdown
+      [options]="orderOptions"
+      [optionSelected]="selectedOrder"
+      (onSelect)="orderByDate($event)"
+    />
+  </div>
+  

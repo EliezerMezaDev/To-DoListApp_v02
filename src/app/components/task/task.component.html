@@ -1,0 +1,24 @@
+<div *ngIf="task" [class]="'task ' + task.status">
+  <div class="task__head">
+    <p *ngIf="task.createdAt">
+      {{ task.createdAt | dateFormat }}
+    </p>
+
+    <button (click)="removeTask()">
+      <img src="assets/cross_mark.svg" alt="" />
+    </button>
+  </div>
+
+  <div class="task__content">
+    <span>
+      {{ task.description }}
+    </span>
+
+    <!-- * agregar dropdonw -->
+    <app-dropdown
+      [options]="statusOptions"
+      [optionSelected]="optionSelected"
+      (onSelect)="changeTaskStatus($event)"
+    />
+  </div>
+</div>
