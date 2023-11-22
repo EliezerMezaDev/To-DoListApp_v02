@@ -17,5 +17,7 @@ export class TaskOrdersComponent {
 
   orderByDate(_selectedOrder: { value: orders; name: string }) {
     this.selectedOrder = _selectedOrder;
+
+    this.taskService.orderByDate(this.selectedOrder.value);
   }
 }

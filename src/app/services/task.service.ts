@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { filter_status, task, task_status } from '../interfaces';
+import { filter_status, orders, task, task_status } from '../interfaces';
 
 import { BehaviorSubject, Observable } from 'rxjs';
 
@@ -57,6 +57,17 @@ export class TaskService {
     this.taskFilterSubject.next(_stauts);
 
     return this.taskSubject.asObservable();
+  }
+
+  public orderByDate(order: orders) {
+    this.taskList.sort((a, b) => {
+      const dateA = new Date(a.createdAt).getTime();
+      const dateB = new Date(b.createdAt).getTime();
+
+      return order === 'newest' ? dateA - dateB : dateB - dateA;
+    });
+
+    this.update();
   }
 
   public addTask(_task: task) {
