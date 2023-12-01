@@ -17,7 +17,7 @@ export class TaskFormComponent {
 
   public newTaskDescription: string = '';
   public newTaskStatus: { value: task_status; name: string } = formOptions[0];
-  
+
   public statusOptions = formOptions;
 
   public mainFocus() {
@@ -29,6 +29,8 @@ export class TaskFormComponent {
   }
 
   public addTask() {
+    if (this.newTaskDescription == '') return;
+
     const newTask: task = {
       id: Math.random(),
       description: this.newTaskDescription,
